@@ -1,0 +1,30 @@
+<html>
+
+<head>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Enter any word to Reverse...</h2>
+
+    <input type="text" name="" id="beforeReverse" onkeyup="reverse()">
+    <input type="text" name="" id="afterReverse">
+
+    <script type="text/javascript">
+        function reverse() {
+
+            var str = document.getElementById('beforeReverse').value;
+            var count = "";
+
+            for (var i = str.length - 1; i >= 0; i--) {
+
+                count += str[i];
+            }
+            document.getElementById('afterReverse').value = count;
+        }
+    </script>
+
+</body>
+
+</html>

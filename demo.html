@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        alert('hello');
+        var a = "hello \"rahul\". ";
+
+        // var name = prompt("What is your name");
+
+        // if (name != 0) {
+        //     document.write("Welcome..." + name);
+        // }
+        document.write(a);
+    </script>
+
+
+    <!-- event -->
+    <button onclick="change()">Color Change Blue</button>
+    <button onclick="changeRed()">Color Change Red</button>
+
+    <button onmouseover="change()">Color Change Blue</button>
+    <button onmousemove="changeRed()">Color Change Red</button>
+
+    <button onkeypress="change()">Color Change Cyan</button>
+    <button onclick="changeRed()">Color Change Red</button>
+
+
+    <script type="text/javascript">
+        function change() {
+            document.body.style.background = 'blue';
+            document.body.style.color = 'white';
+        }
+
+        function changeRed() {
+            document.body.style.background = 'red';
+            document.body.style.color = 'white';
+        }
+    </script>
+
+
+    <!-- CLOCK INTERVAL -->
+    <!DOCTYPE html>
+
+    <body><br><br>
+        <p id="showclock"></p>
+        <button onclick="clearInterval(clock)"> Stop Time </button>
+
+        <script type="text/javascript">
+            var clock = setInterval(clocktiming, 1000)
+
+            function clocktiming() {
+                var d = new Date();
+                var t = d.toLocaleTimeString();
+                // document.write(t);
+                document.getElementById("showclock").innerHTML = t;
+            }
+        </script>
+
+    </body>
+
+</html>
+
+</body>
+
+</html>
+
+<!-- <html>
+
+<head>
+    <script type="text/javascript">
+        function msg() {
+            alert("Hello Javatpoint");
+        }
+    </script>
+</head>
+
+<body>
+    <p>Welcome to JavaScript</p>
+    <form>
+        <input type="button" value="click" onclick="msg()" />
+    </form>
+</body>
+
+</html> -->
