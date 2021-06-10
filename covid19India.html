@@ -1,0 +1,48 @@
+<h3 class="text-center text-uppercase">
+    COVID-19 LIVE UPDATES OF THE INDIA</h3>
+
+<p id="icon"></p>
+<table class="table table-bordered table-striped text-center">
+    <tr>
+        <th>Last Updated Time</th>
+        <th>State/UT</th>
+        <th>confirmed</th>
+        <th>Recovered</th>
+        <th>Decreased</th>
+
+        <td id="fis"></td>
+
+    </tr>
+</table>
+<script>
+    fetch('https://api.covid19india.org/data.json').then((data) => {
+        // console.log(data);
+        return data.json(); //for json obj ko js obj 
+    }).then((actualdata) => {
+        // console.log(actualdata);
+        console.log(actualdata.statewise);
+        let Statecount = (actualdata.statewise).length;
+        console.log(Statecount);
+
+        let i = 1;
+        // while (i < 10) {
+        // console.log(actualdata.statewise[i]);
+        // document.getElementById('icon').innerHTML = i;
+        // console.log("Hello");
+        // }
+        for (i = 0; i < Statecount; i++) {
+            const lastupdatedtime = (actualdata.statewise[i].lastupdatedtime);
+            const state = (actualdata.statewise[i].state);
+            const confirmed = (actualdata.statewise[i].confirmed);
+            const active = (actualdata.statewise[i].active);
+            const deaths = (actualdata.statewise[i].deaths);
+
+
+        }
+        console.log(state);
+
+
+    }).catch((error) => {
+        console.log(`The Error : ${error}`);
+    });
+</script>

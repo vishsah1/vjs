@@ -1,0 +1,148 @@
+<html>
+
+<head>
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    .mainDiv {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        /* background: #3498db; */
+        background: url(type.jpg);
+    }
+    
+    .centerDiv {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    
+    h1 {
+        text-transform: capitalize;
+        margin-bottom: 30px;
+        color: #ecf0f1;
+        text-shadow: 1px 2px 3px #2980b9;
+        font-size: 2.1rem;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+    
+    textarea {
+        background-color: #444;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+        border-radius: 10px 10px 0 0;
+        border: 20px solid #34495e;
+        color: white;
+    }
+    
+    .mainBtn {
+        padding: 10px 20px;
+        border-radius: 10px 10px 10px 10px;
+        border: thin #0000;
+        font-size: 1rem;
+        color: blue;
+    }
+</style>
+
+<body>
+
+    <div class="mainDiv">
+        <div class="centerDiv">
+            <h1>Welcome to Typing Speed Test</h1>
+            <h2 id="msg"></h2>
+            <br>
+            <textarea id="mywords" cols="100" rows="10" placeholder="Rebember, be nice !"></textarea><br><br>
+            <button id="btn" class="mainbtn">Start</button>
+
+        </div>
+
+    </div>
+
+    <script>
+        const setOfwords = ["A bad workman always blames his tools", "A bird in hand is worth two in the bush",
+            "Absence makes the heart grow fonde", "A chain is only as strong as its weakest link",
+            "A journey of thousand miles begins with a single step",
+            "Among the blind the one-eyed man is king", "A ship in the harbor is safe, but that is not what a ship is for"
+        ];
+        const msg = document.getElementById('msg');
+        const typeWords = document.getElementById('mywords');
+        const btn = document.getElementById('btn');
+        let startTime, endTime;
+
+        const playGame = () => {
+            let randomNumber = Math.floor(Math.random() * setOfwords.length);
+            console.log(randomNumber);
+            msg.innerText = setOfwords[randomNumber];
+            let date = new Date;
+            startTime = date.getTime();
+            btn.innerText = "Done";
+        }
+
+        const endPlay = () => {
+            let date = new Date;
+            endTime = date.getTime();
+            let totalTime = ((endTime - startTime) / 1000);
+            console.log(totalTime);
+
+            let totalStr = typeWords.value;
+            let wordCount = wordCounter(totalStr)
+
+            let speed = Math.floor((wordCount / totalTime) * 60);
+            console.log(speed);
+
+            let finalMsg = "You typed total at " + speed + " words per minutes , ";
+
+            finalMsg += compareWords(msg.innerText, totalStr);
+
+            msg.innerText = finalMsg;
+        }
+
+        const compareWords = (str1, str2) => {
+            let word1 = str1.split(" ");
+            let word2 = str2.split(" ");
+            cnt = 0;
+
+            word1.forEach(function(item, index) {
+                if (item == word2[index]) {
+                    cnt++
+                }
+            })
+
+            let errorWord = (word1.length - cnt);
+            return (cnt + " correct out of " + word1.length + " words and the total number of error are " + errorWord + ".");
+
+        }
+
+        const wordCounter = (str) => {
+            let response = str.split(" ").length;
+            console.log(response);
+            return response;
+        }
+        btn.addEventListener('click', function() {
+            if (this.innerText == 'Start') {
+                typeWords.disabled = false;
+                typeWords.value = "";
+                playGame();
+            } else if (this.innerText == 'Done') {
+                typeWords.disabled = true;
+                btn.innerText = "Start";
+                endPlay();
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

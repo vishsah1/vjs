@@ -1,0 +1,39 @@
+<script>
+    var data = [12, 10, 22, 30, 76, 84];
+
+    function check(value) {
+        return value > 30;
+    }
+    document.writeln(data.filter(check));
+    console.log(data.filter(check));
+</script>
+
+<!-- //Array of Objects -->
+<script>
+    var data = [{
+        name: 'rahul',
+        age: 45
+    }, {
+        name: 'vish',
+        age: 35
+    }, {
+        name: 'ramesh',
+        age: null
+    }, {
+        name: 'suresh',
+        age: undefined
+    }, {
+        name: 'visno',
+        age: ''
+    }, {
+        name: null,
+        age: 90
+    }, ];
+
+    var check = data.filter((element) => {
+        // return element.name;
+        return element.age != undefined && element.name != undefined;
+    })
+    console.log(check);
+    document.write(check);
+</script>

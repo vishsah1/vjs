@@ -1,0 +1,49 @@
+<script>
+    /*  A promise is an object that keep track about whether a certain event happened already or not 
+                                        Three Stages of it:-
+                                        a> Pending 
+                                        b> Resolve -> Fullfilled & 
+                                        c> Reject
+
+                                        Promise can be achived by two way:-
+                                        a> By use of Promise constructor (new Promise();)
+                                        b> By creating Promise Object
+                                        - Having two method promise.then(),promise.catch()
+                                                */
+
+
+    // executor function
+    // promise produce
+    const probj1 = new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+            let roll_no = [1, 2, 3, 4, 5];
+            resolve(roll_no); //resolveFxn(value) - Call on fullfilled.
+            // reject("Error while cummanating");
+        }, 2000);
+    });
+
+    // Promise as an object
+    const getBiodata = (indexdata) => {
+        return new Promise((resolve, reject) => {
+            setTimeout((indexdata) => {
+                let biodata = {
+                    name: "Vishwajit",
+                    age: 23,
+                }
+                resolve(`My roll no is ${indexdata} Name ${biodata.name} and ${biodata.age}`)
+            }, 2000, indexdata);
+        });
+    }
+
+    // ..promise consume
+    probj1.then((rollno) => {
+        console.log(rollno);
+        return getBiodata(roll_no[1]);
+        getBiodata(rollno[1]).then((Anything) => {
+            console.log(Anything);
+        })
+    }).catch((error) => {
+        console.log(error);
+    })
+</script>

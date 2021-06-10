@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url("love.jpg");
+            background-image: url("love1.jpg");
             /* background-color: blue; */
             background-size: cover;
             background-position: center;
@@ -24,7 +24,9 @@
     </style>
 </head>
 
-<body>
+<!--for disabiling right click and copy -->
+
+<body oncontextmenu="return false" oncopy="return false">
     <header>
         <div class="card w-50 m-auto text-center">
             <div class="card-header bg-danger text-white">Love Calculator</div>
@@ -51,7 +53,6 @@
         </div>
     </header>
 
-
     <script type="text/javascript">
         function calculate() {
             var randomData = Math.random() * 100;
@@ -60,8 +61,6 @@
 
         }
     </script>
-
-
 </body>
 
 </html>

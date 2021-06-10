@@ -11,6 +11,7 @@
     <input type="text" name="" id="beforeReverse" onkeyup="reverse()">
     <input type="text" name="" id="afterReverse">
 
+
     <script type="text/javascript">
         function reverse() {
 
@@ -23,7 +24,30 @@
             }
             document.getElementById('afterReverse').value = count;
         }
+    </script><br/><br/>
+
+    <h1>Swipe of two number</h1>
+    <input type="text" id="aa">
+    <input type="text" id="bb">
+    <button onclick="swipe()">Swipe</button>
+    <p id="show">After Swaping value of A</p>
+    <p id="show1">After Swaping value of B</p>
+
+
+    <script>
+        function swipe() {
+            var a = document.getElementById("aa").value;
+            var b = document.getElementById("bb").value;
+            var c = "";
+
+            c = a;
+            a = b;
+            b = c;
+            document.getElementById('show').innerHTML = a;
+            document.getElementById("show1").innerHTML = b;
+        }
     </script>
+
 
 </body>
 

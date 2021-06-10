@@ -1,0 +1,32 @@
+<!-- Reduce function takes four agguments
+Accumulator
+Current value
+current index
+source Array -->
+<script>
+    let arr = [3, 5, 7, 9, 12, 34];
+    //sum
+    //average
+    //product
+
+    // var show = arr.reduce((accum, current) => {
+    //     debugger;
+    //     return accum + current;
+    // })
+    // console.log(show);
+
+    var red = arr.reduce((accum, current, index, array) => {
+        // debugger;
+        let total = accum += current;
+
+        // console.log(typeof(index));
+        // console.log(typeof(arr.length));
+
+
+        if (index === (arr.length - 1)) {
+            return Math.round((total / arr.length));
+        }
+        return total;
+    })
+    console.log(red);
+</script>

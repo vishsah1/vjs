@@ -1,0 +1,35 @@
+<script>
+    // console.log("A");
+    // setTimeout(() => {
+    //     console.log("B");
+    // }, 5000);
+    // console.log("C");
+
+    // Callback Hell
+    const getRollNo = () => {
+        setTimeout(() => {
+            console.log("API fetching roll no.");
+            let roll_no = [1, 2, 3, 4, 5];
+            console.log(roll_no);
+
+            setTimeout((rollno) => {
+                const biodata = {
+                    name: 'Vishwajit',
+                    age: 25,
+                }
+                console.log(`My name is ${biodata.name}, I am ${biodata.age} years old.`);
+
+                setTimeout((name) => {
+                    let a = biodata.location = "Delhi";
+                    console.log(`I am from ${a}`);
+
+                    setTimeout((name) => {
+                        let b = biodata.sex = 'male';
+                        console.log(`And I am a ${b}`);
+                    }, 2000, biodata.name);
+                }, 2000, biodata.name);
+            }, 2000, roll_no[2]);
+        }, 2000);
+    }
+    getRollNo();
+</script>
